@@ -12,4 +12,4 @@ if(n1 < n2) {
 if (n3 < menor) {
     menor = n3
 }
-console,log (`O menor número é ${menor}`);
+console.log (`O menor número é ${menor}`);

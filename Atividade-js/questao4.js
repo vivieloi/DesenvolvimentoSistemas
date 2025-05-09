@@ -8,4 +8,4 @@ else if (n1 >= 0) {
     msg = 'esse número é positivo';
 }
 
-console.log (msg);
+console.log(msg);

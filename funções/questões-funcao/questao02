@@ -1,0 +1,10 @@
+// determine se o número é positivo ou negativo
+function posNegativo(n){
+    if (n >= 0){
+        return 'positivo'
+    }
+    else {
+        return 'negativo'
+    }
+}
+console.log(posNegativo(7));
