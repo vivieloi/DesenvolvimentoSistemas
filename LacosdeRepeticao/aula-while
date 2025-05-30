@@ -1,0 +1,20 @@
+//Loops ou laços de repetição
+// enquanto isso, faça aquilo
+
+let cont = 0;
+
+while(cont<10){
+    console.log(cont);
+    cont = cont + 1; // incrementa de 1 em 1 
+}
+console.log("Fim do laço")
+
+ // --------------------------------------//
+
+let cont = 5;
+
+while(cont > 0){
+    console.log(cont);
+    cont = cont + 1; // decrementa de 1 em 1 
+}
+console.log("Fim do laço")
