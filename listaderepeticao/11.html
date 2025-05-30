@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h2>Digite números inteiros (um número negativo para parar):</h2>
+    <input type="number" id="numero">
+    <button onclick="adicionarNumero()">Adicionar</button>
+    <p id="resultado"></p>
+
+    <script>
+        let contador = 0;
+
+        function adicionarNumero() {
+            const numero = +document.getElementById('numero').value;
+
+            if (numero < 0) {
+                document.getElementById('resultado').textContent = 
+                    `Quantidade de números digitados: ${contador}`;
+                document.getElementById('numero').disabled = true;
+                return;
+            }
+
+            if (isNaN(numero)) {
+                alert('Digite um número!');
+            } else {
+                contador++;
+                document.getElementById('numero').value = '';
+                document.getElementById('numero').focus();
+            }
+        }
+    </script>
+</body>
+</html>

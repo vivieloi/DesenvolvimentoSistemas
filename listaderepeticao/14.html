@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>Contador de Números Divisíveis por 3</h1>
+    <button onclick="contar()">Iniciar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function contar() {
+            var total = 0;
+
+            while (true) {
+                var valor = prompt("Digite um número (0 para sair):");
+                if (valor == null || valor == "0") break;
+
+                var numero = Number(valor);
+
+                if (numero % 3 == 0) {
+                    total++;
+                }
+            }
+
+            document.getElementById('resultado').innerText = 
+                "Quantidade de números divisíveis por 3: " + total;
+        }
+    </script>
+</body>
+</html>

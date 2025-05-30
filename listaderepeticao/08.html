@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h2>Digite palavras (digite "sair" para parar):</h2>
+    <input type="text" id="palavraInput" autofocus>
+    <button id="adicionarBtn">Adicionar</button>
+    <p id="resultado"></p>
+
+    <script>
+        let contadorOi = 0;
+
+        const input = document.getElementById('palavraInput');
+        const btn = document.getElementById('adicionarBtn');
+        const resultado = document.getElementById('resultado');
+
+        function adicionarPalavra() {
+            const palavra = input.value.trim().toLowerCase();
+
+            if (palavra === "sair") {
+                resultado.textContent = `"oi" foi digitado ${contadorOi} vez(es).`;
+                input.disabled = btn.disabled = true;
+            } else {
+                if (palavra === "oi") contadorOi++;
+                input.value = "";
+                input.focus();
+            }
+        }
+
+        btn.onclick = adicionarPalavra;
+        input.addEventListener('keydown', e => e.key === 'Enter' && adicionarPalavra());
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h2>Contagem até Zero</h2>
+    <input id="numero" type="number">
+    <button onclick="contar()">Exibir</button>
+    <div id="resultado"></div>
+
+    <script>
+        function contar() {
+            var num = document.getElementById('numero').value;
+            var resultado = "";
+
+            if (num == "") {
+                resultado = "Digite um número!";
+            } else {
+                num = Number(num);
+                if (num > 0) {
+                    for (var i = num; i >= 0; i--) {
+                        resultado += i + "<br>";
+                    }
+                } else {
+                    for (var i = num; i <= 0; i++) {
+                        resultado += i + "<br>";
+                    }
+                }
+            }
+
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>

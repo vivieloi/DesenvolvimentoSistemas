@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Média Aritmética</title>
+</head>
+<body>
+    <h2>Calcule a Média Aritmética</h2>
+    <p>Digite números. Para finalizar, digite 0.</p>
+    <input type="number" id="numero">
+    <button onclick="adicionar()">Adicionar</button>
+    <button onclick="mostrar()">Finalizar</button>
+    <div id="resultado"></div>
+
+    <script>
+        var soma = 0;
+        var quantidade = 0;
+
+        function adicionar() {
+            var n = Number(document.getElementById('numero').value);
+            document.getElementById('numero').value = '';
+            document.getElementById('numero').focus();
+
+            if (n == 0) {
+                mostrar();
+                return;
+            }
+
+            soma += n;
+            quantidade++;
+        }
+
+        function mostrar() {
+            var res = document.getElementById('resultado');
+
+            if (quantidade == 0) {
+                res.innerText = 'Nenhum número foi inserido.';
+            } else {
+                var media = soma / quantidade;
+                res.innerText = 'Média: ' + media.toFixed(2);
+            }
+
+            document.getElementById('numero').disabled = true;
+        }
+    </script>
+</body>
+</html>

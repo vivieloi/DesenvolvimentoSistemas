@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Média dos Divisíveis por 3</title>
+</head>
+<body>
+    <h2>Média dos Números Divisíveis por 3</h2>
+    <input type="number" id="numero" placeholder="Digite um número">
+    <button onclick="adicionar()">Adicionar</button>
+    <button onclick="mostrar()">Finalizar</button>
+    <p id="resultado"></p>
+
+    <script>
+        var soma = 0;
+        var cont = 0;
+
+        function adicionar() {
+            var n = Number(document.getElementById('numero').value);
+            document.getElementById('numero').value = '';
+            document.getElementById('numero').focus();
+
+            if (n < 0) {
+                mostrar();
+                return;
+            }
+
+            if (n % 3 == 0) {
+                soma += n;
+                cont++;
+            }
+        }
+
+        function mostrar() {
+            var res = document.getElementById('resultado');
+
+            if (cont == 0) {
+                res.innerText = 'Nenhum número divisível por 3 foi digitado.';
+            } else {
+                var media = soma / cont;
+                res.innerText = 'Média dos números divisíveis por 3: ' + media.toFixed(2);
+            }
+
+            document.getElementById('numero').disabled = true;
+        }
+    </script>
+</body>
+</html>

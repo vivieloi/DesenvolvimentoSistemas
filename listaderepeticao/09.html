@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h2>Digite palavras distintas (deixe vazio para terminar):</h2>
+    <input type="text" id="palavraInput" autofocus>
+    <button id="adicionarBtn">Adicionar</button>
+    <ul id="listaPalavras"></ul>
+    <button id="resultadoBtn">Mostrar Resultado</button>
+    <div id="resultado"></div>
+
+    <script>
+        const palavras = [];
+        const input = document.getElementById('palavraInput');
+        const lista = document.getElementById('listaPalavras');
+        const resultado = document.getElementById('resultado');
+
+        function adicionarPalavra() {
+            const palavra = input.value.trim();
+            if (!palavra || palavras.includes(palavra)) return input.value = "", input.focus();
+
+            palavras.push(palavra);
+            lista.innerHTML += `<li>${palavra}</li>`;
+            input.value = "";
+            input.focus();
+        }
+
+        function mostrarResultado() {
+            if (!palavras.length) {
+                resultado.textContent = "Nenhuma palavra foi inserida.";
+                return;
+            }
+            const menor = palavras.reduce((a, b) => a.length <= b.length ? a : b);
+            const maior = palavras.reduce((a, b) => a.length >= b.length ? a : b);
+
+            resultado.innerHTML = `
+                <p>Menor palavra: <strong>${menor}</strong> (${menor.length} caracteres)</p>
+                <p>Maior palavra: <strong>${maior}</strong> (${maior.length} caracteres)</p>
+            `;
+        }
+
+        document.getElementById('adicionarBtn').onclick = adicionarPalavra;
+        document.getElementById('resultadoBtn').onclick = mostrarResultado;
+        input.addEventListener('keydown', e => e.key === 'Enter' && adicionarPalavra());
+    </script>
+</body>
+</html>
